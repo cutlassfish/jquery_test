@@ -1,0 +1,23 @@
+
+<html>
+<script src="jquery-3.3.1.min.js"></script>
+
+<body>
+	<div class="trigger">Trigger</div>
+	<div class="result"></div>
+	<div class="log"></div>
+	<script>
+		$(document).ajaxComplete(function(event, xhr, settings) {
+			if (settings.url === "test.html") {
+				alert("1");
+				$(".log").text("Triggered ajaxCompete handler. The result is " + xhr.responseText);
+			}
+		});
+		$(".trigger").click(function() {
+			alert("2");
+			$(".result").load("test.html");
+		});
+	</script>
+
+</body>
+</html>
